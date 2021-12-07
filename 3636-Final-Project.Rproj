@@ -11,3 +11,16 @@ Encoding: UTF-8
 
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+
+setwd("~/R/3636/3636-Final-Project")
+
+firedata <- read.csv("AFF.csv")
+str(firedata)
+summary(firedata) #checking if any data cleanup needed
+
+#removed variable "year" because only 1 year in data
+firedata1 <- firedata[-c(3)] 
+summary(firedata1)
+# converted the variables "day" and "month" to factors
+firedata1$day <- factor(firedata1$day)
+firedata1$month <- factor(firedata1$month)
